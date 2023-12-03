@@ -18,7 +18,7 @@ class ResponsvieButton extends StatelessWidget{
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: AppColors.gradient1,
+          // color: AppColors.maincolor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

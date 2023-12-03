@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:final_proj/profile_page.dart';
 import 'package:final_proj/search_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,19 +33,25 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: myScreen[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.black,
-        elevation: 0,
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        color: Colors.blueAccent,
+        index: selectedIndex,
+        // showSelectedLabels: true,
+        // showUnselectedLabels: true,
+        // unselectedItemColor: Colors.grey,
+        // selectedItemColor: Colors.blueAccent,
+
+        // elevation: 0,
         onTap: pageShifter,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.apps_rounded),label:"home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label:"Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label:"Profile"),
+          Icon(Icons.home_rounded, size: 30),
+          Icon(Icons.explore_rounded, size: 30),
+          Icon(Icons.person_rounded, size: 30),
         ],
+        animationCurve: Curves.easeInOut,
+        animationDuration: Duration(milliseconds: 300),
+        height: 60,
       ),
     );
   }

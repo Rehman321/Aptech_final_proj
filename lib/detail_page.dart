@@ -5,7 +5,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  final int index;
+
+   // DetailPage(int index, {super.key, required this.index});
+  DetailPage({required this.index, Key? key}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -21,7 +24,6 @@ class _DetailPageState extends State<DetailPage> {
         height: double.maxFinite,
         child: Stack(
           children: [
-
             Positioned(
                 left: 0,
                 right: 0,
@@ -34,7 +36,7 @@ class _DetailPageState extends State<DetailPage> {
                       bottomLeft: Radius.circular(20),
                     ),
                     image:DecorationImage(
-                      image: AssetImage("img/welcome-img1.jpg"),
+                      image: AssetImage("images/welcome1.jpg"),
                       fit: BoxFit.cover,
                     ),
 
@@ -93,7 +95,9 @@ class _DetailPageState extends State<DetailPage> {
                 top: 20,
                 child:Row(
                   children: [
-                    IconButton(onPressed: (){}, icon:Icon(Icons.menu_outlined),
+                    IconButton(onPressed: (){
+                      Navigator.pop(context);
+                    }, icon:Icon(Icons.arrow_back),
                       color: Colors.grey,
                     )
                   ],

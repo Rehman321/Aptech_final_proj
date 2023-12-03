@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../misc/colors.dart';
+
 class SignUpPage extends StatefulWidget {
   final void Function()? onPressed;
   const SignUpPage({super.key, required this.onPressed});
@@ -81,7 +83,24 @@ class _SignUpPageState extends State<SignUpPage> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(labelText: "Email"),
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(27),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Pallete.borderColor,
+                        width: 3,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Pallete.gradient2,
+                        width: 3,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+
+                  ),
                 ),
                 TextFormField(
                   controller: _password,
@@ -91,30 +110,86 @@ class _SignUpPageState extends State<SignUpPage> {
                     }
                     return null;
                   },
-                  decoration: const InputDecoration(labelText: "Password"),
-                ),
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(27),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Pallete.borderColor,
+                        width: 3,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Pallete.gradient2,
+                        width: 3,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
 
-                SizedBox(
-                  width: double.infinity,
-                  height: 45,
-                  child: ElevatedButton(
-                    onPressed: (){
-                      if(_formkey.currentState!.validate()){
-                        createUserWithEmailAndPassword();
-                      }
-                    },
-                    child:isLoading
-                        ? Center(child: const CircularProgressIndicator(color: Colors.white,))
-                        :  const Text("SignUp"),
                   ),
                 ),
 
                 SizedBox(
                   width: double.infinity,
                   height: 45,
-                  child: ElevatedButton(
-                    onPressed: widget.onPressed,
-                    child:const Text("Login"),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(colors: [
+                        Pallete.gradient1,
+                        Pallete.gradient2,
+                        Pallete.gradient3,
+                      ],
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: (){
+                        if(_formkey.currentState!.validate()){
+                          createUserWithEmailAndPassword();
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: Size(395, 55),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child:isLoading
+                          ? Center(child: const CircularProgressIndicator(color: Colors.white,))
+                          :  const Text("SignUp",style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17
+                      ),),
+                    ),
+                  ),
+                ),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 45,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(colors: [
+                        Pallete.gradient1,
+                        Pallete.gradient2,
+                        Pallete.gradient3,
+                      ],
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: widget.onPressed,
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: Size(395, 55),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child:const Text("Login",style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17
+                      ),
+                    ),
+                    ),
                   ),
                 ),
 
