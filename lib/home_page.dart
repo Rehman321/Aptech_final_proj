@@ -28,18 +28,18 @@
 //     );
 //   }
 // }
-import 'package:final_proj/sea_page.dart';
+
 import 'package:final_proj/widgets/App_Large_Text.dart';
 import 'package:final_proj/widgets/App_Small_Text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'Custom_page_routes.dart';
 import 'detail_page.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 class HomePage extends StatefulWidget {
   HomePage({super.key});
   final user = FirebaseAuth.instance.currentUser;
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -51,6 +51,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     "Leonardo_Diffusion_XL_Elevate_your_journey_Discover_the_tranqu_3.jpg":"Peshawar",
     "Leonardo_Diffusion_XL_Hit_the_road_with_us_Experience_the_free_2.jpg":"Quetta",
   };
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +67,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Row(
               children: [
                 CircleAvatar(
-                  radius: 25,
+                  radius: 30,
                   backgroundImage: NetworkImage(""),
                 ),
-                Expanded(child: Container(
-                  child: Text(widget.user!.email.toString(),selectionColor: Colors.black,),
-                ),
+
+                Expanded(
+                  child: Container(
+                    margin:EdgeInsets.only(left:10),
+                    child: Text(widget.user!.email.toString(),
+                      style:TextStyle(
+                          color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
                 IconButton(
                   onPressed: ()async{
@@ -83,28 +94,31 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           SizedBox(height: 20,),
           //Plan a trip
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: AppLargeText(text: "Plan Your Perfect Trip"),
-          ),
+
           SizedBox(height: 10,),
           //tapbar
           Container(
+            margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: Colors.grey,
+            ),
+            width: 300,
+            height: 30,
             child: Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
                 labelPadding: const EdgeInsets.only(left:20, right:0 ),
                 controller: _tabController,
-                labelColor: Colors.blueAccent,
-                unselectedLabelColor: Colors.grey,
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.white,
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs: [
-                  Tab(text: "Mountains",icon: Icon(Icons.access_alarm),),
-                  Tab(text: "Sea",icon: Icon(Icons.access_alarm)),
-                  Tab(text: "Surfing",icon: Icon(Icons.access_alarm)),
-                  Tab(text: "Forest",icon: Icon(Icons.access_alarm)),
-                  Tab(text: "Hunting",icon: Icon(Icons.access_alarm)),
+                  Tab(text: "Hunting",),
+                  Tab(text: "Hunting",),
+                  Tab(text: "Hunting",),
+                  Tab(text: "Hunting",),
                 ],
               ),
             ),
@@ -116,7 +130,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppLargeText(text: "Cities",size: 20,),
+                AppLargeText(text: "Cities",size: 30,),
                 AppText(text: "Updated At",),
               ],
             ),
@@ -153,6 +167,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   );
                 }),
           ),
+          SizedBox(height: 10,),
+          Container(
+            margin: const EdgeInsets.only(left: 20,right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(text: "Poular At This Time ",size: 30,),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
           Container(
             padding: const EdgeInsets.only(left:10,),
             width: double.maxFinite,

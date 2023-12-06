@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'misc/colors.dart';
+
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
@@ -63,7 +65,7 @@ class _ProfileState extends State<Profile> {
               shrinkWrap: true,
               itemBuilder:(context,index){
                 return Center(
-                  child: Text(list[currentIndex]),
+                  child: Text(list[currentIndex],style: TextStyle(color:Pallete.textColor),),
                 );
               })
         ],

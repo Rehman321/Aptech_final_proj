@@ -22,9 +22,9 @@ class _LoginAndSignupState extends State<LoginAndSignup> {
   @override
   Widget build(BuildContext context) {
     if(isLogin){
-      return LoginPage(onPressed:togglePage,);
+      return LoginPage(showRegisterPage:togglePage);
     }else{
-      return  SignUpPage(onPressed:togglePage,);
+      return  SignUpPage(showLoginPage:togglePage);
     }
   }
 }

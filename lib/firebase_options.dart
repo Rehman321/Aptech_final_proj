@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAsag8wyNL9WX13S1I7DGfEdRL_Q1A7fqk',
-    appId: '1:607871518318:web:4c530f55410d48a7b1887f',
-    messagingSenderId: '607871518318',
-    projectId: 'final-proj-31854',
-    authDomain: 'final-proj-31854.firebaseapp.com',
-    storageBucket: 'final-proj-31854.appspot.com',
-    measurementId: 'G-J0BEQQBCV7',
+    apiKey: 'AIzaSyDPtdU_4mKnmtBNVUPEw5HTdvR8dRH01fg',
+    appId: '1:97438862818:web:f3f0f392cbf3ac33403dbb',
+    messagingSenderId: '97438862818',
+    projectId: 'final-project-554f1',
+    authDomain: 'final-project-554f1.firebaseapp.com',
+    storageBucket: 'final-project-554f1.appspot.com',
+    measurementId: 'G-26KXNK7NLQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDUQGorr_CFAS4YiZ4uiivyvxm6PpdWMmk',
-    appId: '1:607871518318:android:8ee065324899122fb1887f',
-    messagingSenderId: '607871518318',
-    projectId: 'final-proj-31854',
-    storageBucket: 'final-proj-31854.appspot.com',
+    apiKey: 'AIzaSyAYCeYd-4vkME2LMppqjcnNhZSRNE4-RZ0',
+    appId: '1:97438862818:android:dc232dadb5d0432e403dbb',
+    messagingSenderId: '97438862818',
+    projectId: 'final-project-554f1',
+    storageBucket: 'final-project-554f1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAFTaSkm8eSry_MG4CqflNuCrvnMARlEcc',
-    appId: '1:607871518318:ios:bb4530ddb9e46595b1887f',
-    messagingSenderId: '607871518318',
-    projectId: 'final-proj-31854',
-    storageBucket: 'final-proj-31854.appspot.com',
+    apiKey: 'AIzaSyCJ_G0IVuhM0sNabRdlEQT6vmDmCSbhdQg',
+    appId: '1:97438862818:ios:d71bafd382a9b94f403dbb',
+    messagingSenderId: '97438862818',
+    projectId: 'final-project-554f1',
+    storageBucket: 'final-project-554f1.appspot.com',
     iosBundleId: 'com.example.finalProj',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAFTaSkm8eSry_MG4CqflNuCrvnMARlEcc',
-    appId: '1:607871518318:ios:3499883ec560408db1887f',
-    messagingSenderId: '607871518318',
-    projectId: 'final-proj-31854',
-    storageBucket: 'final-proj-31854.appspot.com',
+    apiKey: 'AIzaSyCJ_G0IVuhM0sNabRdlEQT6vmDmCSbhdQg',
+    appId: '1:97438862818:ios:994ea4f4a665018d403dbb',
+    messagingSenderId: '97438862818',
+    projectId: 'final-project-554f1',
+    storageBucket: 'final-project-554f1.appspot.com',
     iosBundleId: 'com.example.finalProj.RunnerTests',
   );
 }
