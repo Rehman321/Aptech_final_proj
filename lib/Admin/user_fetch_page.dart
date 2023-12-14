@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class UserFetchPage extends StatefulWidget {
   UserFetchPage({super.key});
   final user = FirebaseAuth.instance.currentUser;
-
   @override
   State<UserFetchPage> createState() => _UserFetchPageState();
 }

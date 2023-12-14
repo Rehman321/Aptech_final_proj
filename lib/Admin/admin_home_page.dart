@@ -1,12 +1,12 @@
+import 'package:final_proj/Admin/add_city_page.dart';
+import 'package:final_proj/Admin/add_user_page.dart';
+import 'package:final_proj/Admin/city_fetch_page.dart';
+import 'package:final_proj/Admin/user_fetch_page.dart';
 import 'package:final_proj/misc/colors.dart';
-import 'package:final_proj/widgets/responsive_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
-
-
+import '../Custom_page_routes.dart';
 class AdminHomePage extends StatefulWidget {
   const AdminHomePage({super.key});
 @override
@@ -18,23 +18,6 @@ class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar:AppBar(
-      //   backgroundColor:Colors.blueAccent[100],
-      //   elevation: 50,
-      //   title: Center(child: Text(user!.email.toString())),
-      //   leading: IconButton(
-      //       onPressed:(){},
-      //       icon: Icon(Icons.menu_outlined)
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //         onPressed:(){
-      //           FirebaseAuth.instance.signOut();
-      //         },
-      //         icon: Icon(Icons.logout_rounded)
-      //     ),
-      //   ],
-      // ),
       backgroundColor: Colors.deepPurple[300],
       body:CustomScrollView(
        slivers: [
@@ -44,10 +27,10 @@ class _AdminHomePageState extends State<AdminHomePage> {
            leading:Icon(Icons.menu_outlined,color: Pallete.borderColor,),
            actions: [
            IconButton(
-                  onPressed:(){
-                      FirebaseAuth.instance.signOut();
+                  onPressed:() async{
+                    await FirebaseAuth.instance.signOut();
                     },
-                    icon: Icon(Icons.logout_rounded,color: Pallete.borderColor,)
+                    icon: Icon(Icons.logout_rounded,color: Pallete.whiteColor,)
                 ),
            ],
            title:Text('A D M I N'),
@@ -88,8 +71,14 @@ class _AdminHomePageState extends State<AdminHomePage> {
                          elevation: 20,
                        ),
                        onPressed: () {
-                         // Add users functionality
+                         // Add users functionalit
                          // Navigator.push(...); // Navigate to the add users screen
+                         Navigator.push(
+                           context,
+                           CustomPageRoute(
+                             builder: (context) => InsertScreen(),
+                           ),
+                         );
                        },
                        child: Text('Add Users'),
                      ),
@@ -101,6 +90,12 @@ class _AdminHomePageState extends State<AdminHomePage> {
                        onPressed: () {
                          // View all users functionality
                          // Navigator.push(...); // Navigate to the view all users screen
+                         Navigator.push(
+                           context,
+                           CustomPageRoute(
+                             builder: (context) => UserFetchPage(),
+                           ),
+                         );
                        },
                        child: Text('View All Users'),
                      ),
@@ -134,16 +129,30 @@ class _AdminHomePageState extends State<AdminHomePage> {
                          style: ElevatedButton.styleFrom(
                            elevation: 20,
                          ),
-                         onPressed:(){},
-                         child:Text('View Cities')
+                         onPressed:(){
+                           Navigator.push(
+                             context,
+                             CustomPageRoute(
+                               builder: (context) => AddCity(),
+                             ),
+                           );
+                         },
+                         child:Text('Add Cities')
                      ),
                      SizedBox(height: 10,),
                      ElevatedButton(
                          style: ElevatedButton.styleFrom(
                            elevation: 20,
                          ),
-                         onPressed:(){},
-                         child:Text('Add Cities')
+                         onPressed:(){
+                           Navigator.push(
+                             context,
+                             CustomPageRoute(
+                               builder: (context) => CityFetchPage(),
+                             ),
+                           );
+                         },
+                         child:Text('View Cities')
                      ),
                    ],
                  ),
