@@ -322,19 +322,23 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
+                    obscureText: true,
                     controller: _passwrodController,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color:Pallete.borderColor),
                         borderRadius: BorderRadius.circular(20),
                       ),
+
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color:Pallete.gradient2,width: 2),
                         borderRadius: BorderRadius.circular(30),
                       ),
+
                       hintText: 'Enter Your Password',
                       fillColor: Pallete.borderColor,
                       filled: true,
+
                     ),
                   ),
                 ),                //forgot password

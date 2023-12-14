@@ -331,9 +331,9 @@ class _InsertScreenState extends State<InsertScreen> {
     UploadTask uploadTask = FirebaseStorage.instance.ref().child("User-Images").child(Uuid().v1()).putFile(userProfile!);
     TaskSnapshot taskSnapshot = await uploadTask;
     String userImage = await taskSnapshot.ref.getDownloadURL();
+    userInsert(imgUrl: userImage,uID: userID);
     SharedPreferences userLog = await SharedPreferences.getInstance();
     userLog.setString('userID', userID);
-    userInsert(imgUrl: userImage,uID: userID);
     setState(() {
       screenLoader = !screenLoader;
     });
