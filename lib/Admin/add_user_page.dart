@@ -1,5 +1,4 @@
 // import 'dart:html';
-//
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:flutter/cupertino.dart';
@@ -293,17 +292,22 @@
 //     );
 //   }
 // }
+
+
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_proj/Admin/admin_home_page.dart';
 import 'package:final_proj/home_page.dart';
 import 'package:final_proj/main.dart';
 import 'package:final_proj/misc/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
+
+import '../Custom_page_routes.dart';
 
 class InsertScreen extends StatefulWidget {
   const InsertScreen({super.key});
@@ -350,21 +354,31 @@ class _InsertScreenState extends State<InsertScreen> {
       "age": Age.text.toString(),
       "password": userPassword.text.toString(),
     };
-    SharedPreferences userCheck = await SharedPreferences.getInstance();
-    if (Email.text.toString()=="admin1@gmail.com") {
-      userCheck.setString('userCheck', "admin");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminHomePage(),));
-    }
-    else{
-      userCheck.setString('userCheck', "user");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
-    }
+    // SharedPreferences userCheck = await SharedPreferences.getInstance();
+    // if (Email.text.toString()=="admin1@gmail.com") {
+    //   userCheck.setString('userCheck', "admin");
+    //   Navigator.push(context, MaterialPageRoute(builder: (context) => AdminHomePage(),));
+    // }
+    // else{
+    //   userCheck.setString('userCheck', "users");
+    //   Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+    // }
     FirebaseFirestore.instance.collection("users").doc(uID).set(useradd);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          GestureDetector(
+              onTap: (){
+                FirebaseAuth.instance.signOut();
+              },
+              child:Icon(Icons.logout_rounded)
+          ),
+        ],
+      ),
       backgroundColor: Pallete.textColor,
       body: SafeArea(
         top: true,

@@ -1,3 +1,4 @@
+import 'package:final_proj/Admin/add_attraction_page.dart';
 import 'package:final_proj/Admin/add_city_page.dart';
 import 'package:final_proj/Admin/add_user_page.dart';
 import 'package:final_proj/Admin/city_fetch_page.dart';
@@ -26,12 +27,12 @@ class _AdminHomePageState extends State<AdminHomePage> {
            backgroundColor: Colors.deepPurple,
            leading:Icon(Icons.menu_outlined,color: Pallete.borderColor,),
            actions: [
-           IconButton(
-                  onPressed:() async{
-                    await FirebaseAuth.instance.signOut();
-                    },
-                    icon: Icon(Icons.logout_rounded,color: Pallete.whiteColor,)
-                ),
+             IconButton(
+               onPressed: ()async{
+                 await FirebaseAuth.instance.signOut();
+               },
+               icon: const Icon(Icons.logout,color: Colors.black,),
+             ),
            ],
            title:Text('A D M I N'),
            expandedHeight: 300,
@@ -192,7 +193,14 @@ class _AdminHomePageState extends State<AdminHomePage> {
                          style: ElevatedButton.styleFrom(
                            elevation: 20,
                          ),
-                         onPressed:(){},
+                         onPressed:(){
+                           Navigator.push(
+                             context,
+                             CustomPageRoute(
+                               builder: (context) => AddAttraction(),
+                             ),
+                           );
+                         },
                          child:Text('Add Attractions')
                      ),
                    ],
